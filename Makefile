@@ -5,15 +5,15 @@ CFLAGS = -Wall -c $(DEBUG)							# linking flag
 LFLAGS = -Wall $(DEBUG)					  	  # flag used in compiling and creating object files	
 
 # All targets 
-all: main
+all: run
 
 # target to generate executable file.
 main: $(OBJ)
-	$(CC) $(LFLAGS) $(OBJ) -o main
+	$(CC) $(LFLAGS) $(OBJ) -o subject
 
 # target to run executable file	
 run: 
-	./main > output.txt
+	./subject > output.txt
 
 # dependencies of seat_main.cpp
 main.o: main.cpp subject.h
@@ -25,5 +25,5 @@ seat_functions.o: subject.cpp subject.h
 
 # to destroy all the object and exectuable file
 clean:
-	rm -f *.o main output.txt 
+	rm -f *.o subject output.txt 
 
