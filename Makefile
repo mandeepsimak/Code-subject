@@ -5,7 +5,7 @@ CFLAGS = -Wall -c $(DEBUG)							# linking flag
 LFLAGS = -Wall $(DEBUG)					  	  # flag used in compiling and creating object files	
 
 # All targets 
-all: run
+all: main run
 
 # target to generate executable file.
 main: $(OBJ)
