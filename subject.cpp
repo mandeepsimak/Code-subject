@@ -1,11 +1,5 @@
 #include "subject.h"
 
-template <typename T, size_t N> inline
-size_t SizeOfArray( const T(&)[ N ] )
-{
-  return N;
-}
-
 void subject :: get_details()
 {
     infile.open("input.in");
@@ -88,6 +82,20 @@ void subject :: arrange_rollno()
             cout<<set_rollno[i][j]<<"\t";
         }
     }
+    
+    outfile.open("roll.in");
+    outfile<<total_code<<endl;
+    for(i = 0; i < total_code; i++)//SizeOfArray(set_rollno)
+    {
+//        outfile<<'\n'<<set_code[i]<<endl;
+        outfile<<set_rno[i]<<'\t';
+        for(j = 0; j < set_rno[i]; j++)//SizeOfArray(set_rollno[0])
+        {
+            outfile<<set_rollno[i][j]<<"\t";
+        }
+        outfile<<endl;
+    }
+    outfile.close();
     
 }
 
