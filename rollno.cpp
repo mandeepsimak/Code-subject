@@ -37,15 +37,21 @@ void RollNo :: arrange_rollno()
 {
     if(n == 0)
     {
+    	A=-1;
+    	B=-1;
+    	outfile.open("demo.txt");
         for(i = 0; i < 2; i++)
         {
             for(j = 0; j < total_rno[n]; j++)
             {
                 set_rollno[i][j] = rollno[n][j];
+                
+                     outfile<<"\n" <<set_rollno[i][j];
             }
             set_trno[i] = total_rno[n];
             n++;
         }
+
     }
     else if(n < total_branches)
     {
@@ -78,7 +84,7 @@ void RollNo :: next_rollno()
 {
     if( Z == 0 )
     {
-        if(A >= set_trno[Z])
+        if(A >= set_trno[Z]-1)
         {
             arrange_rollno();
             A = 0;
@@ -89,7 +95,7 @@ void RollNo :: next_rollno()
     
     if( Z == 1 )
     {
-        if(B >= set_trno[Z])
+        if(B >= set_trno[Z]-1)
         {
             arrange_rollno();
             B = 0;
@@ -117,6 +123,7 @@ void RollNo :: seat_alot()
                     case 0:
                         next_rollno();
                         seat[z][y][x] = set_rollno[Z][A];
+                        outfile << "\n\n" << seat[0][0][0] <<"\t" <<set_rollno[Z][A] <<"\t "<< Z  <<" "<<A;
 //                        A++;
                         Z++;
                         break;
