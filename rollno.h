@@ -13,7 +13,7 @@ class RollNo
     int rollno[MIN_SIZE][MAX_SIZE], total_rno[MIN_SIZE], total_branches, 
         set_rollno[MIN_SIZE][MAX_SIZE], n, set_trno[MIN_SIZE],
         i, j, k, total_rooms, rows[MIN_SIZE], cols[MIN_SIZE], row, col,
-        seat[MIN_SIZE][MIN_SIZE][MAX_SIZE], x, y, z, X, Y;//, Z, A, B;
+        seat[MIN_SIZE][MIN_SIZE][MAX_SIZE], x, y, z, X, Y, C, D;//, Z, A, B;
     
     string branch_name[MIN_SIZE], room_no[MIN_SIZE];
     

@@ -9,6 +9,7 @@ RollNo :: RollNo()
     n = 0;
     row = col = 0;
     X = Y = 0;// Z = A = B = 0;
+    C = D = 0;
 }
 
 void RollNo :: get_details()
@@ -40,7 +41,7 @@ void RollNo :: arrange_rollno()
     	A=-1;
     	B=-1;
     	outfile.open("demo.txt");
-        for(i = 0; i < 2; i++)
+        for(i = 0; i < 4; i++)
         {
             for(j = 0; j < total_rno[n]; j++)
             {
@@ -77,6 +78,19 @@ void RollNo :: arrange_rollno()
             set_trno[Z] = 0;
             set_rollno[Z][B] = 0;
         }
+        if( Z == 2 )
+        {
+            C = 0;
+            set_trno[Z] = 0;
+            set_rollno[Z][C] = 0;
+        }
+    
+        if( Z == 3 )
+        {
+            D = 0;
+            set_trno[Z] = 0;
+            set_rollno[Z][D] = 0;
+        }
     }
 }
 
@@ -103,6 +117,28 @@ void RollNo :: next_rollno()
         else
             B++;
     }
+    if( Z == 2 )
+    {
+        if(C >= set_trno[Z])
+        {
+            arrange_rollno();
+            C = 0;
+        }
+        else
+            C++;
+    }
+    
+    if( Z == 3 )
+    {
+        if(D >= set_trno[Z])
+        {
+            arrange_rollno();
+            D = 0;
+        }
+        else
+            D++;
+    }
+    
     
 }
 
@@ -135,9 +171,27 @@ void RollNo :: seat_alot()
 //                        next_rollno();
                         Z++;
                         break;
+                    
+                     case 2:
+                        next_rollno();
+                        seat[z][y][x] = set_rollno[Z][C];
+//                        A++;
+                        Z++;
+                        break;
+                    
+                    case 3:
+                        next_rollno();
+                        seat[z][y][x] = set_rollno[Z][D];
+//                        B++;
+//                        next_rollno();
+                        Z++;
+                        break;
                 }
-                if(Z > 1)
+                if(Z > 3)
                     Z = 0;
+//                }
+//                if(Z > 1)
+//                    Z = 0;
             }
         }
     }
